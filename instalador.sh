@@ -39,6 +39,7 @@ if [ $op -eq 1 ]; then
 	echo Configurando MariaDB
 	sudo rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
 	sudo cp ~/instalador/Proyecto/SMR/Conf-MariaDB/50-server.cnf /etc/mysql/mariadb.conf.d/
+	cd ~/
 	git clone https://github.com/javisolis123/SMR-COMTECO.git
 	cd ~/SMR-COMTECO/
 	source bin/activate
