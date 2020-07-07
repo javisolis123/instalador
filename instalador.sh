@@ -12,6 +12,8 @@ menu
 read op
 #Condición si el usuario quiere instalar y configurar el SMR
 if [ $op -eq 1 ]; then
+	sudo apt-get update
+	sudo apt-get upgrade
 	sudo apt-get install mariadb-server
 	clear
 	echo Desea correr el instalar seguro de MySQL: s/n
@@ -26,6 +28,8 @@ if [ $op -eq 1 ]; then
 fi
 #Condición si el usuario quiere instalar y configurar el ECM
 if [ $op -eq 2 ]; then
+	sudo apt-get update
+	sudo apt-get upgrade
 	sudo apt-get install mariadb-server
 	clear
 	echo Desea correr el instalar seguro de MySQL: s/n
@@ -51,6 +55,8 @@ if [ $op -eq 2 ]; then
 fi
 #Condición si el usuario quiere instalar y configurar el CCM
 if [ $op -eq 3 ]; then
+	sudo apt-get update
+	sudo apt-get upgrade
 	sudo apt-get install mariadb-server
 	clear
 	echo Desea correr el instalar seguro de MySQL: s/n
