@@ -10,6 +10,7 @@ function menu {
 clear
 menu
 read op
+#Condición si el usuario quiere instalar y configurar el SMR
 if [ $op -eq 1 ]; then
 	sudo apt-get install mariadb-server
 	clear
@@ -21,7 +22,9 @@ if [ $op -eq 1 ]; then
 	fi
 	sudo apt-get install apache2 php libapache2-mod-php php-mysql
 	sudo apt -y install phpmyadmin
+	
 fi
+#Condición si el usuario quiere instalar y configurar el ECM
 if [ $op -eq 2 ]; then
 	sudo apt-get install mariadb-server
 	clear
@@ -33,7 +36,19 @@ if [ $op -eq 2 ]; then
 	fi
 	sudo apt-get install apache2 php libapache2-mod-php php-mysql
 	sudo apt -y install phpmyadmin
+	cd ~/
+	git clone https://github.com/javisolis123/ECM-COMTECO.git
+	cd ~/
+	git clone https://github.com/javisolis123/ECM-FLASK-SERVER.git
+	cd ~/
+	git clone https://github.com/javisolis123/ECM-SUPERVISOR.git
+	cd ~/ECM-COMTECO
+	source bin/activate
+	pip3 install -r requirements.txt
+	
+
 fi
+#Condición si el usuario quiere instalar y configurar el CCM
 if [ $op -eq 3 ]; then
 	sudo apt-get install mariadb-server
 	clear
@@ -45,6 +60,10 @@ if [ $op -eq 3 ]; then
 	fi
 	sudo apt-get install apache2 php libapache2-mod-php php-mysql
 	sudo apt -y install phpmyadmin
+	cd ~/
+	git clone https://github.com/javisolis123/Flask-WebServer.git
+	cd ~/
+	git clone https://github.com/javisolis123/CCM-supervisor.git
 fi
 if [ $op -eq 4 ]; then
 	clear
