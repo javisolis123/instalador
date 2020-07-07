@@ -27,6 +27,10 @@ if [ $op -eq 1 ]; then
 	sudo apt-get install phpmyadmin
 	sudo apt-get install vsftpd
 	clear
+	echo Configurando el servicio FTP
+	sudo rm -rf /etc/vsftpd.conf
+	sudo cp ~/instalador/SMR/Conf-FTP/vsftpd.conf ~/etc/
+	clear
 	echo Desea configurar la automaticamente? s/n
 	echo -e
 	read ip
