@@ -18,6 +18,7 @@ if [ $op -eq 1 ]; then
 	clear
 	echo Desea correr el instalar seguro de MySQL: s/n
 	read op1
+	#Opcion para correr el instalador seguro de mysql
 	if [ $op1 == "s" ]; then
 		clear
 		sudo mysql_secure_installation
@@ -38,6 +39,11 @@ if [ $op -eq 1 ]; then
 	echo Configurando MariaDB
 	sudo rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
 	sudo cp ~/instalador/Proyecto/SMR/Conf-MariaDB/50-server.cnf /etc/mysql/mariadb.conf.d/
+	git clone https://github.com/javisolis123/SMR-COMTECO.git
+	cd ~/SMR-COMTECO/
+	source bin/activate
+	pip3 install -r requirements.txt
+	deactivate
 fi
 
 #Condición si el usuario quiere instalar y configurar el ECM
