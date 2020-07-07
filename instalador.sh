@@ -31,10 +31,13 @@ if [ $op -eq 1 ]; then
 	sudo rm -rf /etc/vsftpd.conf
 	sudo cp ~/instalador/Proyecto/SMR/Conf-FTP/vsftpd.conf /etc/
 	clear
-	echo Desea configurar la automaticamente? s/n
-	echo -e
-	read ip
-	
+	echo Configurando la IP a 10.0.0.10
+	sudo rm -rf /etc/dhcpcd.conf
+	sudo cp ~/instalador/Proyecto/SMR/Conf-Eth/dhcpcd.conf /etc/
+	clear
+	echo Configurando MariaDB
+	sudo rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
+	sudo cp ~/instalador/Proyecto/SMR/Conf-MariaDB/50-server.cnf /etc/mysql/mariadb.conf.d/
 fi
 
 #Condición si el usuario quiere instalar y configurar el ECM
