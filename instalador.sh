@@ -29,7 +29,7 @@ if [ $op -eq 1 ]; then
 	clear
 	echo Configurando el servicio FTP
 	sudo rm -rf /etc/vsftpd.conf
-	sudo cp ~/instalador/Proyecto/SMR/Conf-FTP/vsftpd.conf ~/etc/
+	sudo cp ~/instalador/Proyecto/SMR/Conf-FTP/vsftpd.conf /etc/
 	clear
 	echo Desea configurar la automaticamente? s/n
 	echo -e
