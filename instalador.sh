@@ -22,10 +22,11 @@ if [ $op -eq 1 ]; then
 		clear
 		sudo mysql_secure_installation
 	fi
-	sudo apt-get install apache2 php libapache2-mod-php php-mysql
-	sudo apt -y install phpmyadmin
-	
+	sudo apt-get install apache2 
+	sudo apt-get install php libapache2-mod-php php-mysql
+	sudo apt-get install phpmyadmin	
 fi
+
 #Condición si el usuario quiere instalar y configurar el ECM
 if [ $op -eq 2 ]; then
 	sudo apt-get update
@@ -47,12 +48,14 @@ if [ $op -eq 2 ]; then
 	git clone https://github.com/javisolis123/ECM-FLASK-SERVER.git
 	cd ~/
 	git clone https://github.com/javisolis123/ECM-SUPERVISOR.git
+	#Entra a la carpeta ECM-COMTECO
 	cd ~/ECM-COMTECO
+	#Activa el entorno virtual
 	source bin/activate
+	#Instala los requerimientos para el proyecto
 	pip3 install -r requirements.txt
-	
-
 fi
+
 #Condición si el usuario quiere instalar y configurar el CCM
 if [ $op -eq 3 ]; then
 	sudo apt-get update
@@ -65,13 +68,16 @@ if [ $op -eq 3 ]; then
 		clear
 		sudo mysql_secure_installation
 	fi
-	sudo apt-get install apache2 php libapache2-mod-php php-mysql
-	sudo apt -y install phpmyadmin
+	sudo apt-get install apache2 
+	sudo apt-get install php libapache2-mod-php php-mysql
+	sudo apt-get install phpmyadmin
 	cd ~/
 	git clone https://github.com/javisolis123/Flask-WebServer.git
 	cd ~/
 	git clone https://github.com/javisolis123/CCM-supervisor.git
 fi
+
+#Opcion para cerrar el script
 if [ $op -eq 4 ]; then
 	clear
 	exit
