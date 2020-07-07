@@ -24,7 +24,13 @@ if [ $op -eq 1 ]; then
 	fi
 	sudo apt-get install apache2 
 	sudo apt-get install php libapache2-mod-php php-mysql
-	sudo apt-get install phpmyadmin	
+	sudo apt-get install phpmyadmin
+	sudo apt-get install vsftpd
+	clear
+	echo Desea configurar la automaticamente? s/n
+	echo -e
+	read ip
+	if [ $ip == "s" ]
 fi
 
 #Condición si el usuario quiere instalar y configurar el ECM
