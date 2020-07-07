@@ -34,8 +34,9 @@ if [ $op -eq 2 ]; then
 		clear
 		sudo mysql_secure_installation
 	fi
-	sudo apt-get install apache2 php libapache2-mod-php php-mysql
-	sudo apt -y install phpmyadmin
+	sudo apt-get install apache2 
+	sudo apt-get install php libapache2-mod-php php-mysql
+	sudo apt-get install phpmyadmin
 	cd ~/
 	git clone https://github.com/javisolis123/ECM-COMTECO.git
 	cd ~/
