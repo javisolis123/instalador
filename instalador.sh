@@ -27,6 +27,7 @@ if [ $op -eq 1 ]; then
 	sudo apt-get install php libapache2-mod-php php-mysql
 	sudo apt-get install phpmyadmin
 	sudo apt-get install vsftpd
+	sudo apt-get install python3-pip
 	clear
 	echo Configurando el servicio FTP
 	sudo rm -rf /etc/vsftpd.conf
@@ -43,8 +44,20 @@ if [ $op -eq 1 ]; then
 	git clone https://github.com/javisolis123/SMR-COMTECO.git
 	cd ~/SMR-COMTECO/
 	source bin/activate
+	pip3 install --upgrade pip
 	pip3 install -r requirements.txt
+	pip3 install adafruit-circuitpython-ads1x15
 	deactivate
+	clear
+	echo Es necesario reiniciar el dispositivo
+	echo -e
+	echo NOTA: LA IP POR DEFECTO ES LA 192.168.10.10 SSH_Puerto: 23
+	echo -e
+	echo Presione la tecla r para reiniciar o cualquier otra para saltar este paso
+	read reinicio
+	if [ $reinicio == "r" ]; then
+		sudo reboot now
+	fi
 fi
 
 #Condición si el usuario quiere instalar y configurar el ECM
