@@ -14,8 +14,10 @@ do
 	read op
 	#Condición si el usuario quiere instalar y configurar el SMR
 	if [ $op -eq 1 ]; then
+		#Actualizacion del sistema
 		sudo apt-get update
 		sudo apt-get upgrade
+		#Instalacion de MariaDB
 		sudo apt-get install mariadb-server
 		clear
 		echo Desea correr el instalar seguro de MySQL: s/n
@@ -25,12 +27,14 @@ do
 			clear
 			sudo mysql_secure_installation
 		fi
+		#Seccion para Instalar LAMP, phpmyadmin y servidor FTP
 		sudo apt-get install apache2 
 		sudo apt-get install php libapache2-mod-php php-mysql
 		sudo apt-get install phpmyadmin
 		sudo apt-get install vsftpd
 		sudo apt-get install python3-pip
 		clear
+		#Copia la configurar establecida al directorio raiz
 		echo Configurando el servicio FTP
 		sudo rm -rf /etc/vsftpd.conf
 		sudo cp ~/instalador/Proyecto/SMR/Conf-FTP/vsftpd.conf /etc/
@@ -46,11 +50,15 @@ do
 		sudo rm -rf /etc/ssh/sshd_config
 		sudo cp ~/instalador/Proyecto/SMR/Conf-SSH/sshd_config /etc/ssh/
 		cd ~/
+		#Clona el ropositorio SMR
 		git clone https://github.com/javisolis123/SMR-COMTECO.git
 		cd ~/SMR-COMTECO/
 		source bin/activate
+		#Actualiza PIP3
 		pip3 install --upgrade pip
+		#Instala dependencias del entorno virtual
 		pip3 install -r requirements.txt
+		#Instala la libreria para ADS1015
 		pip3 install adafruit-circuitpython-ads1x15
 		deactivate
 		clear
